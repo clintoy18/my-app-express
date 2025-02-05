@@ -9,7 +9,20 @@ app.use(express.static('public'));
 //Define the route for the home page
 app.get('/', (req,res) => {   
     res.send("Hello World");
-})
+});
+
+//new route for about
+app.get('/about', (req,res) =>{
+    res.send('About Us')
+});
+
+app.use(express.json());
+// new route for post
+app.post('/submit',(req,res) =>{
+    const data = req.body;
+    res.send(`Received: ${JSON.stringify(data)}`);
+
+}); 
 
 //Start the server 
 app.listen(port, ()=> {
