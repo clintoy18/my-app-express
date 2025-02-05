@@ -24,8 +24,19 @@ app.post('/submit',(req,res) =>{
 
 }); 
 
+
+//new route for items
+
+const items = ['Apple', 'Banana', 'Orange'];
+
+app. get('/items', (req,res)=>
+{
+    res.json(items);
+});
+
+
+
 //Start the server 
 app.listen(port, ()=> {
    console.log(`Server running at http://localhost:${port}`);
-
 })
