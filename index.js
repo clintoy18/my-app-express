@@ -17,6 +17,7 @@ app.get('/about', (req,res) =>{
 });
 
 app.use(express.json());
+
 // new route for post
 app.post('/submit',(req,res) =>{
     const data = req.body;
@@ -24,17 +25,15 @@ app.post('/submit',(req,res) =>{
 
 }); 
 
-
-//new route for items
-
+//new route for itemsx
 const items = ['Apple', 'Banana', 'Orange'];
 
 app. get('/items', (req,res)=>
 {
+    const newItem = req.body.item;
+    items.push(newItem);
     res.json(items);
 });
-
-
 
 //Start the server 
 app.listen(port, ()=> {
